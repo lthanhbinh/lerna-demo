@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 // @ts-ignore
-import { load } from 'web-component-load';
 import {Header} from 'header';
 import {Footer} from 'footer';
 import {Products} from 'products';
@@ -53,13 +54,19 @@ function App() {
   ];
   let [counterProduct, setCartProduct] = useState<number>(0);
   const addProductToCart = () => {
-    setCartProduct(counterProduct++);
+    console.log(counterProduct)
+    setCartProduct(counterProduct+1);
   }
   return (
     <div className="App">
       <Header counterCart={counterProduct}/>
-      <Products productsCollection={products} addToCart={addProductToCart}/>
-      <Footer/>
+      <Router>
+        <Routes>
+          <Route path="/app" element={<div>App</div>} />
+          <Route path="/dashboard" element={<div>Dashboard</div>} />
+          <Route path="/products" element={<Products productsCollection={products} addToCart={addProductToCart}/>} />
+        </Routes>
+      </Router>
     </div>
   );
 }
