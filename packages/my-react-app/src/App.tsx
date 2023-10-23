@@ -54,7 +54,6 @@ function App() {
   ];
   let [counterProduct, setCartProduct] = useState<number>(0);
   const addProductToCart = () => {
-    console.log(counterProduct)
     setCartProduct(counterProduct+1);
   }
   return (
