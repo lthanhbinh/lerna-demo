@@ -1,46 +1,14 @@
-import React, { useState } from 'react';
-import { Header } from 'header';
-import { Footer } from 'footer';
-import { Products } from 'products';
-import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-const App = () => {
-  let [counterProduct, setCartProduct] = useState<number>(0);
+import { MsalAuthenticationTemplate, MsalProvider } from '@azure/msal-react';
+import { InteractionType } from '@azure/msal-browser';
+import { msalInstance } from './configs/azure';
+import AppRouter from './routes/AppRouters';
 
-  const addProductToCart = () => {
-    setCartProduct(counterProduct + 1);
-  };
-
+export const App: React.FC = () => {
   return (
-    <div className="App">
-      <Header counterCart={counterProduct} />
-      <Router>
-        <Routes>
-          <Route
-            path="/products"
-            element={<Products addToCart={addProductToCart} />}
-          />
-          <Route
-            path="/dashboard"
-            element={
-              <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
-                Dashboard
-              </div>
-            }
-          />
-          <Route
-            path="/app"
-            element={
-              <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
-                Application
-              </div>
-            }
-          />
-        </Routes>
-      </Router>
-      <Footer />
-    </div>
+    <MsalProvider instance={msalInstance}>
+      <MsalAuthenticationTemplate interactionType={InteractionType.Redirect}>
+        <AppRouter />
+      </MsalAuthenticationTemplate>
+    </MsalProvider>
   );
 };
-
-export default App;
