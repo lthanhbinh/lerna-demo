@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -41,27 +42,32 @@
 header {
   border-bottom: 1px solid #ccc;
 }
+
 header .left-header {
   float: left;
 }
+
 header:after {
   content: '';
   clear: both;
   display: block;
 }
-header .left-header ul{
+
+header .left-header ul {
   list-style-type: none;
 }
+
 header .left-header ul li {
   display: inline-block;
   padding-right: 10px;
 }
-header .left-header ul li a{
+
+header .left-header ul li a {
   color: #000;
   text-decoration: none;
 }
 
-header .left-header ul li a:hover{
+header .left-header ul li a:hover {
   text-decoration: underline;
 }
 
@@ -70,7 +76,7 @@ header .header-right {
   padding-right: 16px;
 }
 
-header .cart-block, header .log-out  {
+header .cart-block, header .log-out {
   display: inline-block;
   padding: 16px 0;
 }
@@ -84,7 +90,7 @@ header .log-out {
   color: cornflowerblue;
 }
 
-header .log-out:hover{
+header .log-out:hover {
   text-decoration: underline;
 }
 
@@ -109,4 +115,13 @@ header .log-out:hover{
   padding: 10px 16px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+
+.left-header .submenu a {
+  text-decoration: none;
+}
+
+.submenu .active {
+  font-weight: 700;
 }
