@@ -16,6 +16,10 @@ const AppRouter = () => {
       <Router>
         <Routes>
           <Route
+            path="/"
+            element={<Products addToCart={addProductToCart} />}
+          />
+          <Route
             path="/products"
             element={<Products addToCart={addProductToCart} />}
           />
