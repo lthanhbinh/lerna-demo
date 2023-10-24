@@ -71,6 +71,7 @@ export function Products({ addToCart }: ProductsProps) {
           );
         })}
       </ul>
+      <a href='/app'>Application</a>
     </div>
   );
 }
