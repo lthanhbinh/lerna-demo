@@ -13,9 +13,9 @@
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "header": "*",
-    "footer": "*",
-    "products": "*"
+    "header": "0.1.0",
+    "footer": "0.1.0",
+    "products": "0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
