@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header } from 'header';
 import { Footer } from 'footer';
 import { Products } from 'products';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 const AppRouter = () => {
   let [counterProduct, setCartProduct] = useState<number>(0);
 
@@ -41,8 +41,9 @@ const AppRouter = () => {
       <Router>
         <Header counterCart={counterProduct} routes={menu} />
         <Routes>
-          {menu.map((item) => (
-            <Route path={item.pathname} element={item.element} />
+          <Route path="/" element={<Navigate to="/app" replace />} />
+          {menu.map((item, index) => (
+            <Route key={index} path={item.pathname} element={item.element} />
           ))}
         </Routes>
       </Router>

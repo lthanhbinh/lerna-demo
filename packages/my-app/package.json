@@ -15,7 +15,8 @@
     "web-vitals": "^2.1.4",
     "header": "0.1.0",
     "footer": "0.1.0",
-    "products": "0.1.0"
+    "products": "0.1.0",
+    "user-menu": "0.1.0"
   },
   "scripts": {
     "start": "react-scripts start",

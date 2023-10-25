@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, BrowserRouter as Router } from 'react-router-dom';
+import { Menu } from 'user-menu';
 
 interface HeaderProps {
   counterCart: number;
@@ -21,9 +22,8 @@ export function Header({ counterCart = 0, routes = [] }: HeaderProps) {
             );
           })}
       </div>
-      <div className={'header-right'}>
-        <div className={'cart-block'}>Cart ({counterCart})</div>
-        <div className={'log-out'}>Log Out</div>
+      <div>
+        <Menu counterCart={counterCart} />
       </div>
     </header>
   );
