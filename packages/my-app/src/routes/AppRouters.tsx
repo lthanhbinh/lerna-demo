@@ -16,7 +16,7 @@ const AppRouter = () => {
       name: 'Application',
       element: (
         <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
-          Dashboard
+          Application
         </div>
       )
     },
