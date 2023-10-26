@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 interface ProductsProps {
-  addToCart?(product: object): void;
+  addProductToCart?(product: object): void;
 }
 
 const products = [
@@ -54,7 +54,7 @@ const products = [
   }
 ];
 
-export function Products({ addToCart }: ProductsProps) {
+export function Products({ addProductToCart }: ProductsProps) {
   return (
     <div>
       <h1>Products</h1>
@@ -64,7 +64,7 @@ export function Products({ addToCart }: ProductsProps) {
             <li key={key}>
               <h4>{product.name}</h4>
               <p>{product.description}</p>
-              <button className={'add-to-cart'} onClick={() => addToCart(product)}>
+              <button className={'add-to-cart'} onClick={() => addProductToCart(product)}>
                 Add to cart
               </button>
             </li>
