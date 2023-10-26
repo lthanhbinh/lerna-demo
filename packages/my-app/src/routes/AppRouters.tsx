@@ -3,6 +3,7 @@ import { Header } from 'header';
 import { Footer } from 'footer';
 import { Products } from 'products';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { SuspenseRoute } from './SuspenseRoute';
 const AppRouter = () => {
   let [counterProduct, setCartProduct] = useState<number>(0);
 
@@ -15,24 +16,32 @@ const AppRouter = () => {
       pathname: '/app',
       name: 'Application',
       element: (
-        <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
-          Application
-        </div>
+        <SuspenseRoute>
+          <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
+            Application
+          </div>
+        </SuspenseRoute>
       )
     },
     {
       pathname: '/dashboard',
       name: 'Dashboard',
       element: (
-        <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
-          Dashboard
-        </div>
+        <SuspenseRoute>
+          <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
+            Dashboard
+          </div>
+        </SuspenseRoute>
       )
     },
     {
       pathname: '/products',
       name: 'Products',
-      element: <Products addToCart={addProductToCart} />
+      element: (
+        <SuspenseRoute>
+          <Products addToCart={addProductToCart} />
+        </SuspenseRoute>
+      )
     }
   ];
 
