@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, lazy } from 'react';
 import { Header } from 'header';
 import { Footer } from 'footer';
 import { Products } from 'products';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { SuspenseRoute } from './SuspenseRoute';
+
+async function delayForDemo() {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
+  return import('../pages/Home');
+}
+const HomePreview = lazy(() => delayForDemo());
+
 const AppRouter = () => {
   let [counterProduct, setCartProduct] = useState<number>(0);
 
@@ -17,9 +26,7 @@ const AppRouter = () => {
       name: 'Application',
       element: (
         <SuspenseRoute>
-          <div style={{ height: 'calc(100vh - 200px)', textAlign: 'center', margin: '50px' }}>
-            Application
-          </div>
+          <HomePreview />
         </SuspenseRoute>
       )
     },
@@ -39,7 +46,7 @@ const AppRouter = () => {
       name: 'Products',
       element: (
         <SuspenseRoute>
-          <Products addToCart={addProductToCart} />
+          <Products addProductToCart={addProductToCart} />
         </SuspenseRoute>
       )
     }

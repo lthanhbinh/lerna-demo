@@ -55,17 +55,11 @@ const products = [
 ];
 
 export function Products({ addToCart }: ProductsProps) {
-  const [localProducts, setLocalProducts] = useState(products);
-  useEffect(() => {
-    fetch('/api').then(() => {
-      setLocalProducts(localProducts.concat(products));
-    });
-  }, []);
   return (
     <div>
       <h1>Products</h1>
       <ul className={'products'}>
-        {localProducts.map((product: any, key: any) => {
+        {products.map((product: any, key: any) => {
           return (
             <li key={key}>
               <h4>{product.name}</h4>

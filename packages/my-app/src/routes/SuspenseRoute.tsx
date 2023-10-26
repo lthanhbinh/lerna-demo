@@ -9,7 +9,7 @@ export const SuspenseRoute = ({ children }: ISuspenseRouteProps) => {
   return (
     <Suspense
       fallback={
-        <div className="loader-container">
+        <div className="loader-full-screen">
           <Spinner />
         </div>
       }
